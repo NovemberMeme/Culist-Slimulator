@@ -22,6 +22,13 @@ namespace SiegeTheSky
         public delegate void SpawnFromObjectPooler(GameObject poolabledObject, Vector3 startPosition);
         public static SpawnFromObjectPooler spawnFromObjectPooler;
 
+        // Crafting
+
+        public static GameObject marker;
+
+        public delegate void DeselectAll();
+        public static DeselectAll deselectAll;
+
         #endregion
 
         #region General Stuffs
