@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SiegeTheSky;
 using TMPro;
+using cc.tools;
 
 namespace Slimulator
 {
@@ -14,6 +15,11 @@ namespace Slimulator
 
         [SerializeField] private bool isSelected = false;
 
+        [SerializeField] private bool isDecaying = false;
+        [SerializeField] private float lifeSpan = 120;
+
+        private Timer timer;
+
         public CraftingMaterialType MyCraftingMaterialType { get => myCraftingMaterialType; set => myCraftingMaterialType = value; }
         public bool IsSelected { get => isSelected; set => isSelected = value; }
 
@@ -21,6 +27,12 @@ namespace Slimulator
         {
             AssignMaterial();
             DelegateManager.AvoidOverlap(DelegateManager.allUIObjects, DelegateManager.minDistance, GetComponent<RectTransform>());
+
+            if (isDecaying)
+            {
+                timer = GetComponent<Timer>();
+                timer.startCountDown(lifeSpan);
+            }
         }
 
         private void OnDrawGizmos()

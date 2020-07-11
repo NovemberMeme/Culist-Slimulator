@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 namespace cc.tools
 {
     public class Timer : MonoBehaviour
@@ -26,11 +27,12 @@ namespace cc.tools
             while (_duration>0.01)
             {
                 curTime += tic;
-                txt.text = string.Format("{0:0.00}", curTime); 
+                txt.text = string.Format("{0:0.00}", duration - curTime); 
                 yield return new WaitForSeconds(tic);
                 _duration -= tic;
-
             }
+
+            Destroy(gameObject);
         }
         
     }
