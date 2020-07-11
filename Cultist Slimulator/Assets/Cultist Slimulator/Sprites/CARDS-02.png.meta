@@ -1,0 +1,359 @@
+fileFormatVersion: 2
+guid: df715db0aafa3b145ab4842f38cd9385
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8822314348571602387
+    second: CARD_BG_RED
+  - first:
+      213: -6471608066623974697
+    second: ICON_IRON
+  - first:
+      213: -1140130201087297414
+    second: CARDS-02_2
+  - first:
+      213: -2516997691288699481
+    second: CARDS-02_3
+  - first:
+      213: 7615125840827588311
+    second: CARDS-02_4
+  - first:
+      213: -4365896826721013367
+    second: ICON SLIME
+  - first:
+      213: -2529417925808178526
+    second: ICON_ACID
+  - first:
+      213: 3011265343345436598
+    second: CARD_MICROWAVE
+  - first:
+      213: -5921694490712620730
+    second: ICON_SMOG
+  - first:
+      213: -8524341590487009139
+    second: CARDS-02_9
+  - first:
+      213: -4076691632536436752
+    second: CARD_BG_YELLOW
+  - first:
+      213: -2990042744040785949
+    second: CARDS-02_11
+  - first:
+      213: 7713208996837017720
+    second: CARD_BG_GREEN
+  - first:
+      213: 5702327033493358742
+    second: CARD_FUSION
+  - first:
+      213: -6526541535489159394
+    second: ICON_CAVE
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CARD_BG_RED
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1398
+        width: 471
+        height: 641
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd217b48282f6a70800000000000000
+      internalID: 8822314348571602387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICON_IRON
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1677
+        width: 388
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2535f50ca3036a0800000000000000
+      internalID: -6471608066623974697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICON SLIME
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 1637
+        width: 398
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 981f945b7f73963c0800000000000000
+      internalID: -4365896826721013367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICON_ACID
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 1588
+        width: 288
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aab2b34cc3b5ecd0800000000000000
+      internalID: -2529417925808178526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CARD_MICROWAVE
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 849
+        width: 506
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7ac8a10e92ac920800000000000000
+      internalID: 3011265343345436598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICON_SMOG
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1042
+        width: 401
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641cfa43c3ae1dda0800000000000000
+      internalID: -5921694490712620730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CARD_BG_YELLOW
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 705
+        width: 469
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ffbbd73f8eac67c0800000000000000
+      internalID: -4076691632536436752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CARD_BG_GREEN
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 3
+        width: 469
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87841de57b2da0b60800000000000000
+      internalID: 7713208996837017720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CARD_FUSION
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 32
+        width: 506
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6988a78893cb22f40800000000000000
+      internalID: 5702327033493358742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICON_CAVE
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 270
+        width: 825
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f06557d011d65a0800000000000000
+      internalID: -6526541535489159394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

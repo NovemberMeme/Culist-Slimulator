@@ -1,0 +1,392 @@
+fileFormatVersion: 2
+guid: cb7b9fba4d24e134995860120580e105
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3559119703488948975
+    second: RED_IRON_SPRITE
+  - first:
+      213: 8820901968254563114
+    second: RED_SLIME_SPRITE
+  - first:
+      213: -2000157778812040291
+    second: RED_SMOG_SPRITE
+  - first:
+      213: -5775305512451368519
+    second: RED_ACID_SPRITE
+  - first:
+      213: 6319723573448852432
+    second: YELLOW_IRON_SPRITE
+  - first:
+      213: 1134639162457767830
+    second: YELLOW_SLIME_SPRITE
+  - first:
+      213: -5220484524648541671
+    second: YELLOW_SMOG_SPRITE
+  - first:
+      213: 9090913649827703416
+    second: YELLOW_ACID_SPRITE
+  - first:
+      213: 2444192561540417946
+    second: GREEN_IRON_SPRITE
+  - first:
+      213: 1594867657688630945
+    second: GREEN_SLIME_SPRITE
+  - first:
+      213: 6032741365890811229
+    second: GREEN_SMOG_SPRITE
+  - first:
+      213: 5333125021655999618
+    second: GREEN_ACID_SPRITE
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RED_IRON_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1441
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11592789c777b9ec0800000000000000
+      internalID: -3559119703488948975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RED_SLIME_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 1441
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a237b50ea932a6a70800000000000000
+      internalID: 8820901968254563114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RED_SMOG_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 1441
+        width: 469
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b8c23f8130e34e0800000000000000
+      internalID: -2000157778812040291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RED_ACID_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 1441
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b91bfc3c3ef9dfa0800000000000000
+      internalID: -5775305512451368519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YELLOW_IRON_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 745
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d3c4125b1b24b750800000000000000
+      internalID: 6319723573448852432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YELLOW_SLIME_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 745
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fba828e4c0fbf00800000000000000
+      internalID: 1134639162457767830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YELLOW_SMOG_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 745
+        width: 469
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91256e0fbfc1d87b0800000000000000
+      internalID: -5220484524648541671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YELLOW_ACID_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 745
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87aeabd7cc9692e70800000000000000
+      internalID: 9090913649827703416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GREEN_IRON_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 49
+        width: 471
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99c4415f248be120800000000000000
+      internalID: 2444192561540417946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GREEN_SLIME_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 49
+        width: 471
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a64a484fab122610800000000000000
+      internalID: 1594867657688630945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GREEN_SMOG_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 49
+        width: 469
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d550ab73f4a98b350800000000000000
+      internalID: 6032741365890811229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GREEN_ACID_SPRITE
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 49
+        width: 471
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284ad8a73f0130a40800000000000000
+      internalID: 5333125021655999618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
