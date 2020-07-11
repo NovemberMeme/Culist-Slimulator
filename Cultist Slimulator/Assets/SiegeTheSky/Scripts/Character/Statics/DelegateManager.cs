@@ -26,8 +26,18 @@ namespace SiegeTheSky
 
         public static GameObject marker;
 
+        // Drag Drop
+
+        public static Canvas dragDropCanvas;
+        public static float dragAlpha;
+        public static float minDistance;
+
         public delegate void DeselectAll();
         public static DeselectAll deselectAll;
+
+        // ThingRuntimeSets
+
+        public static ThingRuntimeSet allUIObjects;
 
         #endregion
 
@@ -85,6 +95,32 @@ namespace SiegeTheSky
             }
 
             things = things.OrderBy(x => Vector3.Distance(origin, x.transform.position)).ToList();
+
+            if (things.Count > 0)
+                return things[0];
+            else
+                return null;
+        }
+
+        public static RectTransform GetNearestUIObject(ThingRuntimeSet thingRuntimeSet, float detectionRadius, Vector3 origin)
+        {
+            if (thingRuntimeSet.Items.Count < 1)
+                return null;
+
+            List<RectTransform> things = new List<RectTransform>();
+
+            for (int i = 0; i < thingRuntimeSet.Items.Count; i++)
+            {
+                RectTransform thing = thingRuntimeSet.Items[i].GetComponent<RectTransform>();
+
+                if (thing == null)
+                    continue;
+
+                if (Vector3.Distance(origin, thing.anchoredPosition) <= detectionRadius)
+                    things.Add(thing);
+            }
+
+            things = things.OrderBy(x => Vector3.Distance(origin, x.anchoredPosition)).ToList();
 
             if (things.Count > 0)
                 return things[0];

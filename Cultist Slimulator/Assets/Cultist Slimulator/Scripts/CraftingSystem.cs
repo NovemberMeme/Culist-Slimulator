@@ -7,13 +7,28 @@ namespace Slimulator
 {
     public class CraftingSystem : MonoBehaviour
     {
+        [Header("Drag Drop Logic: ")]
+
+        [SerializeField] private Canvas _DragDropCanvas;
+        [SerializeField] private float _DragAlpha;
+        [SerializeField] private float _minDistance = 10;
+
         [Header("Crafting Logic: ")]
 
         [SerializeField] private List<GameObject> _currentCraftingMaterials = new List<GameObject>();
 
         [SerializeField] private ThingRuntimeSet allWorldObjects;
+        [SerializeField] private ThingRuntimeSet _allUIObjects;
 
         [SerializeField] private List<RecipeType> allCraftRecipes = new List<RecipeType>();
+
+        private void Awake()
+        {
+            DelegateManager.dragDropCanvas = _DragDropCanvas;
+            DelegateManager.dragAlpha = _DragAlpha;
+            DelegateManager.allUIObjects = _allUIObjects;
+            DelegateManager.minDistance = _minDistance;
+        }
 
         #region Crafting Code
 
