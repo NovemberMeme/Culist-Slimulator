@@ -39,6 +39,10 @@ namespace SiegeTheSky
         public delegate void DeselectAll();
         public static DeselectAll deselectAll;
 
+        // Rift
+
+        public static Transform parentPanel;
+
         // ThingRuntimeSets
 
         public static ThingRuntimeSet allUIObjects;
@@ -143,6 +147,28 @@ namespace SiegeTheSky
         {
             float distance = Mathf.Sqrt(Mathf.Pow(r2.anchoredPosition.x - r1.anchoredPosition.x, 2) + Mathf.Pow(r2.anchoredPosition.y - r1.anchoredPosition.y, 2));
             return distance; 
+        }
+
+        #endregion
+
+        #region
+
+        public static void AvoidOverlap(ThingRuntimeSet _thingRuntimeSet, float _detectionRadius, RectTransform _origin)
+        {
+            RectTransform nearestTransform = DelegateManager.GetNearestUIObject(_thingRuntimeSet, _detectionRadius, _origin);
+
+            if (nearestTransform != null &&
+                nearestTransform != _origin)
+            {
+                Debug.Log(nearestTransform.name.ToString());
+
+                float newX = _origin.anchoredPosition.x - (_origin.anchoredPosition.x - nearestTransform.anchoredPosition.x > 0 ? _detectionRadius : _detectionRadius);
+                float newY = _origin.anchoredPosition.y - (_origin.anchoredPosition.y - nearestTransform.anchoredPosition.y > 0 ? _detectionRadius : _detectionRadius);
+
+                _origin.anchoredPosition = new Vector3(newX, newY);
+
+                AvoidOverlap(_thingRuntimeSet, _detectionRadius, _origin);
+            }
         }
 
         #endregion

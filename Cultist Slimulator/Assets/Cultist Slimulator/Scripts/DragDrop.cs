@@ -39,18 +39,7 @@ namespace Slimulator
             canvasGroup.blocksRaycasts = true;
             canvasGroup.alpha = 1f;
 
-            RectTransform nearestTransform = DelegateManager.GetNearestUIObject(DelegateManager.allUIObjects, DelegateManager.minDistance, rectTransform);
-
-            if (nearestTransform != null &&
-                nearestTransform != transform)
-            {
-                Debug.Log(nearestTransform.name.ToString());
-
-                float newX = rectTransform.anchoredPosition.x - (rectTransform.anchoredPosition.x - nearestTransform.anchoredPosition.x > 0 ? -DelegateManager.minDistance : DelegateManager.minDistance);
-                float newY = rectTransform.anchoredPosition.y - (rectTransform.anchoredPosition.y - nearestTransform.anchoredPosition.y > 0 ? -DelegateManager.minDistance : DelegateManager.minDistance);
-
-                rectTransform.anchoredPosition = new Vector3(newX, newY);
-            }
+            DelegateManager.AvoidOverlap(DelegateManager.allUIObjects, DelegateManager.minDistance, rectTransform);
         }
 
         public void OnPointerDown(PointerEventData eventData)

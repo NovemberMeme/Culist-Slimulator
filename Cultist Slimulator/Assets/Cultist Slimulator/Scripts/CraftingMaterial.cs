@@ -20,6 +20,7 @@ namespace Slimulator
         private void Start()
         {
             AssignMaterial();
+            DelegateManager.AvoidOverlap(DelegateManager.allUIObjects, DelegateManager.minDistance, GetComponent<RectTransform>());
         }
 
         private void OnDrawGizmos()

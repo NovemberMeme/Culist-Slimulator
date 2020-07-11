@@ -17,7 +17,7 @@ namespace Slimulator
 
         [SerializeField] private GameObject _marker;
 
-        [SerializeField] private Transform parentPanel;
+        [SerializeField] private Transform _parentPanel;
 
         [SerializeField] private ThingRuntimeSet allWorldObjects;
         [SerializeField] private ThingRuntimeSet _allUIObjects;
@@ -35,6 +35,7 @@ namespace Slimulator
             DelegateManager.allUIObjects = _allUIObjects;
             DelegateManager.minDistance = _minDistance;
             DelegateManager.marker = _marker;
+            DelegateManager.parentPanel = _parentPanel;
             DelegateManager.currentCraftingMaterials = _currentCraftingMaterials;
         }
 
@@ -83,7 +84,7 @@ namespace Slimulator
             // Marker
 
             GameObject craftedObject = Instantiate(objectToCraft.CraftedObject, DelegateManager.marker.transform.position, Camera.main.transform.rotation);
-            craftedObject.transform.SetParent(parentPanel);
+            craftedObject.transform.SetParent(DelegateManager.parentPanel);
             craftedObject.GetComponent<RectTransform>().localScale = Vector3.one;
 
             ////Module newModule = craftedObject.GetComponent<Module>();

@@ -10,7 +10,8 @@ namespace SiegeTheSky
 
         [SerializeField] private Vector3 spawnOffset = new Vector3(0, -3, 0);
 
-        [SerializeField] private List<GameObject> spawnTableList = new List<GameObject>();
+        [SerializeField] private List<RiftData> spawnTableList = new List<RiftData>();
+
         [SerializeField] private List<int> weightedSpawnChances = new List<int>();
 
         [SerializeField] private int totalWeight;
@@ -34,6 +35,13 @@ namespace SiegeTheSky
         {
             totalWeight = 0;
 
+            weightedSpawnChances.Clear();
+
+            for (int i = 0; i < spawnTableList.Count; i++)
+            {
+                weightedSpawnChances.Add(spawnTableList[i].spawnChance);
+            }
+
             for (int i = 0; i < weightedSpawnChances.Count; i++)
             {
                 totalWeight += weightedSpawnChances[i];
@@ -52,7 +60,11 @@ namespace SiegeTheSky
 
                     // Spawn enemies at a location x units in between headquarters and this rift
 
-                    DelegateManager.spawnFromObjectPooler(spawnTableList[i].gameObject, transform.position + spawnOffset);
+                    //DelegateManager.spawnFromObjectPooler(spawnTableList[i].objectToSpawn, transform.position + spawnOffset);
+
+                    GameObject spawnedObject = Instantiate(spawnTableList[i].objectToSpawn, DelegateManager.marker.transform.position, Camera.main.transform.rotation);
+                    spawnedObject.transform.SetParent(DelegateManager.parentPanel);
+                    spawnedObject.GetComponent<RectTransform>().localScale = Vector3.one;
 
                     return;
                 }
