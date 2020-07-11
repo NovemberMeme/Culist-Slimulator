@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Cultist Slimulator/Scenes/SampleScene.unity
+- path: Assets/Cultist Slimulator/Scenes/TestScene_01.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
