@@ -11,6 +11,8 @@ namespace Slimulator
         private RectTransform rectTransform;
         private CanvasGroup canvasGroup;
 
+        public bool isDragging = false;
+
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
@@ -27,6 +29,8 @@ namespace Slimulator
                 DelegateManager.currentCraftingMaterials.Remove(eventData.pointerDrag);
                 DelegateManager.updateCurrentCraftingMaterials();
             }
+
+            isDragging = true;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -40,6 +44,8 @@ namespace Slimulator
             canvasGroup.alpha = 1f;
 
             DelegateManager.AvoidOverlap(DelegateManager.allUIObjects, DelegateManager.minDistance, rectTransform);
+
+            isDragging = false;
         }
 
         public void OnPointerDown(PointerEventData eventData)

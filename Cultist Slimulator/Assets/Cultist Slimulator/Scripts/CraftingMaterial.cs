@@ -10,6 +10,8 @@ namespace Slimulator
     public class CraftingMaterial : MonoBehaviour
     {
         [SerializeField] private bool shouldAssignNames = false;
+        [SerializeField] private TextMeshProUGUI myText;
+        [SerializeField] private TextMeshProUGUI atomicNumber;
 
         [SerializeField] private CraftingMaterialType myCraftingMaterialType;
 
@@ -45,7 +47,8 @@ namespace Slimulator
             if (shouldAssignNames)
             {
                 name = myCraftingMaterialType.materialName;
-                transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = myCraftingMaterialType.materialName;
+                myText.text = myCraftingMaterialType.materialName;
+                atomicNumber.text = (myCraftingMaterialType.typeIndex + 1).ToString();
                 shouldAssignNames = false;
             }
         }
