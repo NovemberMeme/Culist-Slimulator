@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SiegeTheSky;
+using TMPro;
 
 namespace Slimulator
 {
     public class CraftingMaterial : MonoBehaviour
     {
-        [SerializeField] private CraftingMaterialType myCraftingMaterialType;
+        [SerializeField] private bool shouldAssignNames = false;
 
-        [SerializeField] private bool isCursed = false;
+        [SerializeField] private CraftingMaterialType myCraftingMaterialType;
 
         [SerializeField] private bool isSelected = false;
 
@@ -28,12 +29,12 @@ namespace Slimulator
 
         private void AssignMaterial()
         {
-            name = myCraftingMaterialType.ToString();
-        }
-
-        public bool IsCursed()
-        {
-            return isCursed;
+            if (shouldAssignNames)
+            {
+                name = myCraftingMaterialType.materialName;
+                transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = myCraftingMaterialType.materialName;
+                shouldAssignNames = false;
+            }
         }
     }
 }

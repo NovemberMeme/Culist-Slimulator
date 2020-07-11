@@ -15,51 +15,37 @@ namespace Slimulator
 
         [Header("Crafting Logic: ")]
 
-        [SerializeField] private List<GameObject> _currentCraftingMaterials = new List<GameObject>();
+        [SerializeField] private GameObject _marker;
+
+        [SerializeField] private Transform parentPanel;
 
         [SerializeField] private ThingRuntimeSet allWorldObjects;
         [SerializeField] private ThingRuntimeSet _allUIObjects;
 
+        [SerializeField] private List<GameObject> _currentCraftingSlots = new List<GameObject>();
+        [SerializeField] private List<GameObject> _currentCraftingMaterials = new List<GameObject>();
         [SerializeField] private List<RecipeType> allCraftRecipes = new List<RecipeType>();
 
         private void Awake()
         {
+            DelegateManager.updateCurrentCraftingMaterials += UpdateCraftingMaterials;
+
             DelegateManager.dragDropCanvas = _DragDropCanvas;
             DelegateManager.dragAlpha = _DragAlpha;
             DelegateManager.allUIObjects = _allUIObjects;
             DelegateManager.minDistance = _minDistance;
+            DelegateManager.marker = _marker;
+            DelegateManager.currentCraftingMaterials = _currentCraftingMaterials;
         }
 
         #region Crafting Code
 
-        private void SelectCraftingMaterial()
+        private void UpdateCraftingMaterials()
         {
-            ////if (_currentClickSelection.GetComponent<CraftingMaterial>() == null)
-            ////{
-            ////    //DelegateManager.OnClickSelect(_currentClickSelection);
-            ////    return;
-            ////}
-
-            if (_currentCraftingMaterials.Count < 4)
-            {
-                ////for (int i = 0; i < _currentCraftingMaterials.Count; i++)
-                ////{
-                ////    if (_currentClickSelection.gameObject == _currentCraftingMaterials[i])
-                ////        return;
-                ////}
-
-                ////_currentCraftingMaterials.Add(_currentClickSelection.gameObject);
-
-                if (_currentCraftingMaterials.Count == 3)
-                {
-                    AttemptCraft();
-                }
-                else
-                    HighlightCraftingMaterials();
-            }
+            _currentCraftingMaterials = DelegateManager.currentCraftingMaterials;
         }
 
-        private void AttemptCraft()
+        public void AttemptCraft()
         {
             List<int> currentRecipe = new List<int>();
 
@@ -97,6 +83,8 @@ namespace Slimulator
             // Marker
 
             GameObject craftedObject = Instantiate(objectToCraft.CraftedObject, DelegateManager.marker.transform.position, Camera.main.transform.rotation);
+            craftedObject.transform.SetParent(parentPanel);
+            craftedObject.GetComponent<RectTransform>().localScale = Vector3.one;
 
             ////Module newModule = craftedObject.GetComponent<Module>();
 
@@ -156,7 +144,7 @@ namespace Slimulator
             //    DelegateManager.StopClickSelect(_currentCraftingMaterials[i].transform);
             //}
 
-            DelegateManager.deselectAll();
+            DelegateManager.deselectAll?.Invoke();
         }
 
         #endregion

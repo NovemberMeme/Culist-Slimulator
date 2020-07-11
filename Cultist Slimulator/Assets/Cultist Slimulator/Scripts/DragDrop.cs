@@ -21,6 +21,12 @@ namespace Slimulator
         {
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = DelegateManager.dragAlpha;
+
+            if (DelegateManager.currentCraftingMaterials.Contains(eventData.pointerDrag))
+            {
+                DelegateManager.currentCraftingMaterials.Remove(eventData.pointerDrag);
+                DelegateManager.updateCurrentCraftingMaterials();
+            }
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -33,12 +39,12 @@ namespace Slimulator
             canvasGroup.blocksRaycasts = true;
             canvasGroup.alpha = 1f;
 
-            RectTransform nearestTransform = DelegateManager.GetNearestUIObject(DelegateManager.allUIObjects, DelegateManager.minDistance * 100, rectTransform.anchoredPosition);
+            RectTransform nearestTransform = DelegateManager.GetNearestUIObject(DelegateManager.allUIObjects, DelegateManager.minDistance, rectTransform);
 
             if (nearestTransform != null &&
                 nearestTransform != transform)
             {
-                //Debug.Log(nearestTransform.name.ToString());
+                Debug.Log(nearestTransform.name.ToString());
 
                 float newX = rectTransform.anchoredPosition.x - (rectTransform.anchoredPosition.x - nearestTransform.anchoredPosition.x > 0 ? -DelegateManager.minDistance : DelegateManager.minDistance);
                 float newY = rectTransform.anchoredPosition.y - (rectTransform.anchoredPosition.y - nearestTransform.anchoredPosition.y > 0 ? -DelegateManager.minDistance : DelegateManager.minDistance);

@@ -25,6 +25,10 @@ namespace SiegeTheSky
         // Crafting
 
         public static GameObject marker;
+        public static List<GameObject> currentCraftingMaterials;
+
+        public delegate void UpdateCurrentCraftingMaterials();
+        public static UpdateCurrentCraftingMaterials updateCurrentCraftingMaterials;
 
         // Drag Drop
 
@@ -45,7 +49,7 @@ namespace SiegeTheSky
 
         static DelegateManager()
         {
-
+            currentCraftingMaterials = new List<GameObject>();
         }
 
         #endregion
@@ -102,7 +106,7 @@ namespace SiegeTheSky
                 return null;
         }
 
-        public static RectTransform GetNearestUIObject(ThingRuntimeSet thingRuntimeSet, float detectionRadius, Vector3 origin)
+        public static RectTransform GetNearestUIObject(ThingRuntimeSet thingRuntimeSet, float detectionRadius, RectTransform origin)
         {
             if (thingRuntimeSet.Items.Count < 1)
                 return null;
@@ -116,16 +120,29 @@ namespace SiegeTheSky
                 if (thing == null)
                     continue;
 
-                if (Vector3.Distance(origin, thing.anchoredPosition) <= detectionRadius)
+                if (thing == origin)
+                    continue;
+
+                //Debug.Log(GetDistance(origin, thing));
+
+                if (GetDistance(origin, thing) <= detectionRadius)
                     things.Add(thing);
             }
 
-            things = things.OrderBy(x => Vector3.Distance(origin, x.anchoredPosition)).ToList();
+            things = things.OrderBy(x => GetDistance(origin, x)).ToList();
+
+            //Debug.Log(things[0].name.ToString());
 
             if (things.Count > 0)
                 return things[0];
             else
                 return null;
+        }
+
+        public static float GetDistance(RectTransform r1, RectTransform r2)
+        {
+            float distance = Mathf.Sqrt(Mathf.Pow(r2.anchoredPosition.x - r1.anchoredPosition.x, 2) + Mathf.Pow(r2.anchoredPosition.y - r1.anchoredPosition.y, 2));
+            return distance; 
         }
 
         #endregion
