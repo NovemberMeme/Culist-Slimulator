@@ -6,7 +6,7 @@ using SiegeTheSky;
 
 namespace Slimulator
 {
-    public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+    public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
         private RectTransform rectTransform;
         private CanvasGroup canvasGroup;
@@ -43,7 +43,7 @@ namespace Slimulator
             canvasGroup.blocksRaycasts = true;
             canvasGroup.alpha = 1f;
 
-            DelegateManager.AvoidOverlap(DelegateManager.allUIObjects, DelegateManager.minDistance, rectTransform);
+            DelegateManager.AvoidOverlap(DelegateManager.allUIObjects, DelegateManager.minDistance, rectTransform, DelegateManager.shouldRandomize);
 
             isDragging = false;
         }
@@ -51,6 +51,16 @@ namespace Slimulator
         public void OnPointerDown(PointerEventData eventData)
         {
             
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            //throw new System.NotImplementedException();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            //throw new System.NotImplementedException();
         }
     }
 }

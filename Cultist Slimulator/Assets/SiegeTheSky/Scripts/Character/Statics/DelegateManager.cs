@@ -36,6 +36,11 @@ namespace SiegeTheSky
         public static float dragAlpha;
         public static float minDistance;
 
+        public static float minRandomDistance;
+        public static float maxRandomDistance;
+
+        public static bool shouldRandomize;
+
         public delegate void DeselectAll();
         public static DeselectAll deselectAll;
 
@@ -153,9 +158,12 @@ namespace SiegeTheSky
 
         #region
 
-        public static void AvoidOverlap(ThingRuntimeSet _thingRuntimeSet, float _detectionRadius, RectTransform _origin)
+        public static void AvoidOverlap(ThingRuntimeSet _thingRuntimeSet, float _detectionRadius, RectTransform _origin, bool shouldRandomize)
         {
             RectTransform nearestTransform = DelegateManager.GetNearestUIObject(_thingRuntimeSet, _detectionRadius, _origin);
+
+            if(shouldRandomize)
+                RandomizePosition(_origin);
 
             if (nearestTransform != null &&
                 nearestTransform != _origin)
@@ -169,6 +177,54 @@ namespace SiegeTheSky
 
                 AvoidOverlap(_thingRuntimeSet, _detectionRadius, _origin);
             }
+        }
+
+        public static void AvoidOverlap(ThingRuntimeSet _thingRuntimeSet, float _detectionRadius, RectTransform _origin)
+        {
+            RectTransform nearestTransform = DelegateManager.GetNearestUIObject(_thingRuntimeSet, _detectionRadius, _origin);
+
+            RandomizePosition(_origin);
+
+            if (nearestTransform != null &&
+                nearestTransform != _origin)
+            {
+                //Debug.Log(nearestTransform.name.ToString());
+
+                float newX = _origin.anchoredPosition.x - (_origin.anchoredPosition.x - nearestTransform.anchoredPosition.x > 0 ? _detectionRadius : _detectionRadius);
+                float newY = _origin.anchoredPosition.y - (_origin.anchoredPosition.y - nearestTransform.anchoredPosition.y > 0 ? _detectionRadius : _detectionRadius);
+
+                _origin.anchoredPosition = new Vector3(newX, newY);
+
+                AvoidOverlap(_thingRuntimeSet, _detectionRadius, _origin);
+            }
+        }
+
+        public static void AvoidOverlap(RectTransform _origin)
+        {
+            RectTransform nearestTransform = DelegateManager.GetNearestUIObject(allUIObjects, minDistance, _origin);
+
+            RandomizePosition(_origin);
+
+            if (nearestTransform != null &&
+                nearestTransform != _origin)
+            {
+                //Debug.Log(nearestTransform.name.ToString());
+
+                float newX = _origin.anchoredPosition.x - (_origin.anchoredPosition.x - nearestTransform.anchoredPosition.x > 0 ? minDistance : minDistance);
+                float newY = _origin.anchoredPosition.y - (_origin.anchoredPosition.y - nearestTransform.anchoredPosition.y > 0 ? minDistance : minDistance);
+
+                _origin.anchoredPosition = new Vector3(newX, newY);
+
+                AvoidOverlap(_origin);
+            }
+        }
+
+        public static void RandomizePosition(RectTransform _origin)
+        {
+            float randomX = Random.Range(-maxRandomDistance, maxRandomDistance);
+            float randomY = Random.Range(-maxRandomDistance, maxRandomDistance);
+
+            _origin.anchoredPosition = new Vector3(_origin.anchoredPosition.x + randomX, _origin.anchoredPosition.y + randomY);
         }
 
         #endregion

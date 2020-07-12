@@ -6,7 +6,7 @@ using SiegeTheSky;
 
 namespace Slimulator
 {
-    public class CraftingSlot : MonoBehaviour, IDropHandler
+    public class CraftingSlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
     {
         private RectTransform rectTransform;
 
@@ -36,6 +36,26 @@ namespace Slimulator
             {
                 //Debug.Log(DelegateManager.currentCraftingMaterials.Count);
                 Debug.Log("Crafting Materials at Max!");
+            }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            Debug.Log(eventData.pointerEnter.name.ToString());
+
+            if (eventData.pointerEnter.GetComponent<CraftingMaterial>() != null)
+            {
+                DelegateManager.shouldRandomize = false;
+            }
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            Debug.Log(eventData.pointerEnter.name.ToString());
+
+            if (eventData.pointerEnter.GetComponent<CraftingMaterial>() != null)
+            {
+                DelegateManager.shouldRandomize = true;
             }
         }
     }

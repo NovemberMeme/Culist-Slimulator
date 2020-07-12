@@ -5,6 +5,12 @@ using SiegeTheSky;
 
 namespace Slimulator
 {
+    public enum CraftingMode
+    {
+        Fusion,
+        Microwave
+    }
+
     public class CraftingSystem : MonoBehaviour
     {
         [Header("Drag Drop Logic: ")]
@@ -13,7 +19,12 @@ namespace Slimulator
         [SerializeField] private float _DragAlpha;
         [SerializeField] private float _minDistance = 10;
 
+        [SerializeField] private float _minRandomDistance = 100;
+        [SerializeField] private float _maxRandomDistance = 200;
+
         [Header("Crafting Logic: ")]
+
+        [SerializeField] private CraftingMode craftingMode = CraftingMode.Fusion;
 
         [SerializeField] private GameObject _marker;
 
@@ -38,6 +49,9 @@ namespace Slimulator
             DelegateManager.marker = _marker;
             DelegateManager.parentPanel = _parentPanel;
             DelegateManager.currentCraftingMaterials = _currentCraftingMaterials;
+
+            DelegateManager.minRandomDistance = _minRandomDistance;
+            DelegateManager.maxRandomDistance = _maxRandomDistance;
         }
 
         #region Crafting Code
@@ -59,30 +73,70 @@ namespace Slimulator
                 currentRecipe.Add(_currentCraftingMaterials[i].GetComponent<CraftingMaterial>().MyCraftingMaterialType.atomicNumber);
             }
 
+            switch (craftingMode)
+            {
+                case CraftingMode.Fusion:
+                    CheckRecipe(currentRecipe);
+                    FusionCraft(currentRecipe);
+                    break;
+                case CraftingMode.Microwave:
+                    MicrowaveCraft(currentRecipe);
+                    break;
+            }
+        }
+
+        private void MicrowaveCraft(List<int> _currentRecipe)
+        {
+            for (int i = 0; i < _currentRecipe.Count; i++)
+            {
+                ConsumeSpecificType(_currentRecipe[i]);
+            }
+        }
+
+        private void MassCraft(int atomicNumber, int amount)
+        {
+            while(amount > 3 && atomicNumber >= allCraftingMaterials.Count)
+            {
+                atomicNumber++;
+                amount /= 2;
+            }
+
+            Craft(atomicNumber);
+        }
+
+        private void ConsumeSpecificType(int _atomicNumber)
+        {
+            List<GameObject> allOfType = new List<GameObject>();
+
+            for (int i = 0; i < DelegateManager.allUIObjects.Items.Count; i++)
+            {
+                if(DelegateManager.allUIObjects.Items[i].GetComponent<CraftingMaterial>().MyCraftingMaterialType.atomicNumber == _atomicNumber)
+                {
+                    allOfType.Add(DelegateManager.allUIObjects.Items[i].gameObject);
+                }
+            }
+
+            MassCraft(_atomicNumber, allOfType.Count);
+
+            for (int i = allOfType.Count - 1; i >= 0; i--)
+            {
+                Destroy(allOfType[i]);
+            }
+        }
+
+        private void CheckRecipe(List<int> _currentRecipe)
+        {
             for (int i = 0; i < allCraftRecipes.Count; i++)
             {
-                if (DoRecipesMatch(currentRecipe, allCraftRecipes[i].GetRecipe()))
+                if (DoRecipesMatch(_currentRecipe, allCraftRecipes[i].GetRecipe()))
                 {
                     Craft(allCraftRecipes[i]);
                     return;
                 }
             }
-
-            CraftFromFormmula(currentRecipe);
-
-            DeselectCraftingMaterials();
-
-            ////_currentCraftingMaterials.Remove(_currentClickSelection.gameObject);
-
-            //Debug.Log("No recipe matched!");
-
-            //for (int i = 0; i < currentRecipe.Count; i++)
-            //{
-            //    Debug.Log(currentRecipe[i].ToString());
-            //}
         }
 
-        private void CraftFromFormmula(List<int> _currentRecipe)
+        private void FusionCraft(List<int> _currentRecipe)
         {
             int totalAtomicPower = 0;
 

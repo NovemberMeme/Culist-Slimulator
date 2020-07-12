@@ -1133,6 +1133,8 @@ MonoBehaviour:
   _DragDropCanvas: {fileID: 1997659371}
   _DragAlpha: 0.5
   _minDistance: 100
+  _minRandomDistance: 100
+  _maxRandomDistance: 50
   _marker: {fileID: 1348648297}
   _parentPanel: {fileID: 1417508038}
   allWorldObjects: {fileID: 0}

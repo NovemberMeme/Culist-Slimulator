@@ -71,13 +71,19 @@ namespace Slimulator
         {
             isHiding = false;
             rectTransform.anchoredPosition = lastPos;
-            //DelegateManager.AvoidOverlap()
+
+            if(!DelegateManager.currentCraftingMaterials.Contains(gameObject))
+                DelegateManager.AvoidOverlap(rectTransform);
+
             RandomizeDurations();
         }
 
         private void Hide()
         {
             if (dragDrop.isDragging)
+                return;
+
+            if (DelegateManager.currentCraftingMaterials.Contains(gameObject))
                 return;
 
             isHiding = true;
