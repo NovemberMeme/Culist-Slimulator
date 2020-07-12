@@ -33,7 +33,7 @@ namespace cc.tools
         {
           
             Vector3 screenPoint = Input.mousePosition;
-            screenPoint.z = 10.0f;
+            screenPoint.z = transform.position.z;
             transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
         }
 
