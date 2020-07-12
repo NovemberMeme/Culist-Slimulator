@@ -30,9 +30,11 @@ namespace Slimulator
             {
                 DelegateManager.currentCraftingMaterials.Add(myMat);
                 DelegateManager.updateCurrentCraftingMaterials();
+                //Debug.Log(DelegateManager.currentCraftingMaterials.Count);
             }
             else
             {
+                //Debug.Log(DelegateManager.currentCraftingMaterials.Count);
                 Debug.Log("Crafting Materials at Max!");
             }
         }

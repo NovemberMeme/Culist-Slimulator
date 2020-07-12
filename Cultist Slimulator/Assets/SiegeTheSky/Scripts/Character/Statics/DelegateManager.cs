@@ -160,7 +160,7 @@ namespace SiegeTheSky
             if (nearestTransform != null &&
                 nearestTransform != _origin)
             {
-                Debug.Log(nearestTransform.name.ToString());
+                //Debug.Log(nearestTransform.name.ToString());
 
                 float newX = _origin.anchoredPosition.x - (_origin.anchoredPosition.x - nearestTransform.anchoredPosition.x > 0 ? _detectionRadius : _detectionRadius);
                 float newY = _origin.anchoredPosition.y - (_origin.anchoredPosition.y - nearestTransform.anchoredPosition.y > 0 ? _detectionRadius : _detectionRadius);

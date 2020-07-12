@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RedAcid
   m_EditorClassIdentifier: 
   materialName: RedAcid
-  typeIndex: 0
+  atomicNumber: 1

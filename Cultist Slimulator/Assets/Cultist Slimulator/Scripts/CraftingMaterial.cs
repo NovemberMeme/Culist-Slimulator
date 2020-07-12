@@ -48,7 +48,7 @@ namespace Slimulator
             {
                 name = myCraftingMaterialType.materialName;
                 myText.text = myCraftingMaterialType.materialName;
-                atomicNumber.text = (myCraftingMaterialType.typeIndex + 1).ToString();
+                atomicNumber.text = (myCraftingMaterialType.atomicNumber).ToString();
                 shouldAssignNames = false;
             }
         }

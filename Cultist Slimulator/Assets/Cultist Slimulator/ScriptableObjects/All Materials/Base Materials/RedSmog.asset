@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RedSmog
   m_EditorClassIdentifier: 
   materialName: RedSmog
-  typeIndex: 3
+  atomicNumber: 4

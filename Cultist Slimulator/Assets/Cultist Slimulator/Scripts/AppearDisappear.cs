@@ -71,6 +71,7 @@ namespace Slimulator
         {
             isHiding = false;
             rectTransform.anchoredPosition = lastPos;
+            //DelegateManager.AvoidOverlap()
             RandomizeDurations();
         }
 

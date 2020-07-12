@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RedIron
   m_EditorClassIdentifier: 
   materialName: RedIron
-  typeIndex: 1
+  atomicNumber: 2

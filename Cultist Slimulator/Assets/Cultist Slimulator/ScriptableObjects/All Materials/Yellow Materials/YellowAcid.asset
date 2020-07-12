@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: YellowAcid
   m_EditorClassIdentifier: 
   materialName: YellowAcid
-  typeIndex: 4
+  atomicNumber: 5

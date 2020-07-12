@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RedSlime
   m_EditorClassIdentifier: 
   materialName: RedSlime
-  typeIndex: 2
+  atomicNumber: 3

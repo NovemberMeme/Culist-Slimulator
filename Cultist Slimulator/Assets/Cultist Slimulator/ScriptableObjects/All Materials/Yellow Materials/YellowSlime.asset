@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: YellowSlime
   m_EditorClassIdentifier: 
   materialName: YellowSlime
-  typeIndex: 7
+  atomicNumber: 8

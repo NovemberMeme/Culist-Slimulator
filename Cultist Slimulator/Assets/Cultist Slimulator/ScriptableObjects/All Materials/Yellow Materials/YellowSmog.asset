@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: YellowSmog
   m_EditorClassIdentifier: 
   materialName: YellowSmog
-  typeIndex: 8
+  atomicNumber: 9

@@ -10,6 +10,6 @@ namespace Slimulator
     {
         public string materialName;
 
-        public int typeIndex;
+        public int atomicNumber;
     }
 }

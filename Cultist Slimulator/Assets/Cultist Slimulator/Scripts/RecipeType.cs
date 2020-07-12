@@ -20,7 +20,7 @@ namespace Slimulator
 
             for (int i = 0; i < recipe.Count; i++)
             {
-                intRecipe.Add((int)recipe[i].typeIndex);
+                intRecipe.Add((int)recipe[i].atomicNumber);
             }
 
             return intRecipe;

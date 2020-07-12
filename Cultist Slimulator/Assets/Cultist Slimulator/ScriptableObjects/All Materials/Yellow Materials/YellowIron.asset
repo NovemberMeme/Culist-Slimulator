@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: YellowIron
   m_EditorClassIdentifier: 
   materialName: YellowIron
-  typeIndex: 5
+  atomicNumber: 6

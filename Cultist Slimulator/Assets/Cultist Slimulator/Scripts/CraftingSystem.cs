@@ -24,6 +24,7 @@ namespace Slimulator
 
         [SerializeField] private List<GameObject> _currentCraftingSlots = new List<GameObject>();
         [SerializeField] private List<GameObject> _currentCraftingMaterials = new List<GameObject>();
+        [SerializeField] private List<GameObject> allCraftingMaterials = new List<GameObject>();
         [SerializeField] private List<RecipeType> allCraftRecipes = new List<RecipeType>();
 
         private void Awake()
@@ -55,7 +56,7 @@ namespace Slimulator
                 if (_currentCraftingMaterials[i].GetComponent<CraftingMaterial>() == null)
                     return;
 
-                currentRecipe.Add(_currentCraftingMaterials[i].GetComponent<CraftingMaterial>().MyCraftingMaterialType.typeIndex);
+                currentRecipe.Add(_currentCraftingMaterials[i].GetComponent<CraftingMaterial>().MyCraftingMaterialType.atomicNumber);
             }
 
             for (int i = 0; i < allCraftRecipes.Count; i++)
@@ -67,16 +68,79 @@ namespace Slimulator
                 }
             }
 
-            ////_currentCraftingMaterials.Remove(_currentClickSelection.gameObject);
-
-            Debug.Log("No recipe matched!");
+            CraftFromFormmula(currentRecipe);
 
             DeselectCraftingMaterials();
 
-            for (int i = 0; i < currentRecipe.Count; i++)
+            ////_currentCraftingMaterials.Remove(_currentClickSelection.gameObject);
+
+            //Debug.Log("No recipe matched!");
+
+            //for (int i = 0; i < currentRecipe.Count; i++)
+            //{
+            //    Debug.Log(currentRecipe[i].ToString());
+            //}
+        }
+
+        private void CraftFromFormmula(List<int> _currentRecipe)
+        {
+            int totalAtomicPower = 0;
+
+            for (int i = 0; i < _currentRecipe.Count; i++)
             {
-                Debug.Log(currentRecipe[i].ToString());
+                totalAtomicPower += (int)Mathf.Pow(2, _currentRecipe[i]);
             }
+
+            _currentRecipe.Sort();
+
+            int highestAtomicPower = (int)Mathf.Pow(2, _currentRecipe[0]);
+
+            List<int> elementsToCraft = new List<int>();
+
+            if(totalAtomicPower >= 2 * highestAtomicPower)
+            {
+                elementsToCraft.Add(_currentRecipe[0] + 1);
+            }
+            else
+            {
+                elementsToCraft.Add(_currentRecipe[0]);
+            }
+
+            int coinFlip = Random.Range(0, 2);
+
+            if(coinFlip > 0)
+            {
+                elementsToCraft.Add(RandomTraceElement(elementsToCraft[0]));
+            }
+                
+            elementsToCraft.Add(RandomTraceElement(elementsToCraft[0]));
+
+            CraftMultiple(elementsToCraft);
+
+            FixCraftingList();
+        }
+
+        private int RandomTraceElement(int atomicNumber)
+        {
+            atomicNumber = (int)Mathf.Ceil(atomicNumber / 2);
+
+            return Random.Range(1, atomicNumber + 1);
+        }
+
+        private void CraftMultiple(List<int> toCraftList)
+        {
+            for (int i = 0; i < toCraftList.Count; i++)
+            {
+                Craft(toCraftList[i]);
+            }
+        }
+
+        private void Craft(int atomicNumber)
+        {
+            Debug.Log(atomicNumber);
+            GameObject craftedObject = Instantiate(allCraftingMaterials[atomicNumber-1], DelegateManager.marker.transform.position, Camera.main.transform.rotation);
+            craftedObject.transform.SetParent(DelegateManager.parentPanel);
+            craftedObject.GetComponent<RectTransform>().localScale = Vector3.one;
         }
 
         private void Craft(RecipeType objectToCraft)
@@ -87,6 +151,13 @@ namespace Slimulator
             craftedObject.transform.SetParent(DelegateManager.parentPanel);
             craftedObject.GetComponent<RectTransform>().localScale = Vector3.one;
 
+            FixCraftingList();
+        }
+
+        private void FixCraftingList()
+        {
+            //Debug.Log("Fixed Crafting List");
+
             ////Module newModule = craftedObject.GetComponent<Module>();
 
             ////if (newModule == null)
@@ -96,9 +167,10 @@ namespace Slimulator
 
             for (int i = _currentCraftingMaterials.Count - 1; i >= 0; i--)
             {
-                Debug.Log(_currentCraftingMaterials[i].name);
+                //Debug.Log(_currentCraftingMaterials[i].name);
                 //Destroy(_currentCraftingMaterials[i]);
-                _currentCraftingMaterials[i].SetActive(false);
+                Destroy(_currentCraftingMaterials[i]);
+                //_currentCraftingMaterials[i].SetActive(false);
             }
 
             DeselectCraftingMaterials();
