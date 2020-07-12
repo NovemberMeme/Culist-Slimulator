@@ -62,9 +62,7 @@ namespace SiegeTheSky
 
                     //DelegateManager.spawnFromObjectPooler(spawnTableList[i].objectToSpawn, transform.position + spawnOffset);
 
-                    GameObject spawnedObject = Instantiate(spawnTableList[i].objectToSpawn, DelegateManager.marker.transform.position, Camera.main.transform.rotation);
-                    spawnedObject.transform.SetParent(DelegateManager.parentPanel);
-                    spawnedObject.GetComponent<RectTransform>().localScale = Vector3.one;
+                    AttemptSpawn(i);
 
                     return;
                 }
@@ -73,6 +71,22 @@ namespace SiegeTheSky
                     randomNumber -= weightedSpawnChances[i];
                 }
             }
+        }
+
+        private void AttemptSpawn(int _i)
+        {
+            if (spawnTableList[_i].objectToSpawn != null)
+                Spawn(_i);
+
+            if(spawnTableList[_i].randomEvent != null)
+                spawnTableList[_i].randomEvent.MoveRandom();
+        }
+
+        public void Spawn(int _i)
+        {
+            GameObject spawnedObject = Instantiate(spawnTableList[_i].objectToSpawn, DelegateManager.marker.transform.position, Camera.main.transform.rotation);
+            spawnedObject.transform.SetParent(DelegateManager.parentPanel);
+            spawnedObject.GetComponent<RectTransform>().localScale = Vector3.one;
         }
 
         public void Click()

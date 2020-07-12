@@ -11,10 +11,34 @@ namespace Slimulator
         private RectTransform rectTransform;
 
         private GameObject myMat;
+        private RectTransform myMatRect;
+        private DragDrop myMatDragDrop;
 
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
+        }
+
+        private void Update()
+        {
+            if(myMat != null)
+            {
+                if(myMatDragDrop != null)
+                {
+                    if (myMatDragDrop.isDragging)
+                    {
+                        myMat = null;
+                        myMatRect = null;
+                        myMatDragDrop = null;
+                    }
+                }
+            }
+
+            if(myMat != null)
+            {
+                if(myMatRect != null)
+                    myMatRect.anchoredPosition = rectTransform.anchoredPosition;
+            }
         }
 
         public void OnDrop(PointerEventData eventData)
@@ -25,6 +49,8 @@ namespace Slimulator
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = rectTransform.anchoredPosition;
 
             myMat = eventData.pointerDrag;
+            myMatRect = myMat.GetComponent<RectTransform>();
+            myMatDragDrop = myMat.GetComponent<DragDrop>();
 
             if(DelegateManager.currentCraftingMaterials.Count < 3)
             {
@@ -41,7 +67,7 @@ namespace Slimulator
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            Debug.Log(eventData.pointerEnter.name.ToString());
+            //Debug.Log(eventData.pointerEnter.name.ToString());
 
             if (eventData.pointerEnter.GetComponent<CraftingMaterial>() != null)
             {
@@ -51,7 +77,7 @@ namespace Slimulator
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Debug.Log(eventData.pointerEnter.name.ToString());
+            //Debug.Log(eventData.pointerEnter.name.ToString());
 
             if (eventData.pointerEnter.GetComponent<CraftingMaterial>() != null)
             {

@@ -27,6 +27,8 @@ namespace Slimulator
         private DragDrop dragDrop;
         private RectTransform rectTransform;
 
+        public bool IsHiding { get => isHiding; set => isHiding = value; }
+
         private void Awake()
         {
             dragDrop = GetComponent<DragDrop>();

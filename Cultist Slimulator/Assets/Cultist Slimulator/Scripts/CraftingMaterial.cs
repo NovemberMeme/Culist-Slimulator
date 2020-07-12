@@ -20,13 +20,20 @@ namespace Slimulator
         [SerializeField] private bool isDecaying = false;
         [SerializeField] private float lifeSpan = 120;
 
+        public bool isCrafted = false;
+
         private Timer timer;
+        private RectTransform rectTransform;
 
         public CraftingMaterialType MyCraftingMaterialType { get => myCraftingMaterialType; set => myCraftingMaterialType = value; }
         public bool IsSelected { get => isSelected; set => isSelected = value; }
 
         private void Start()
         {
+            CheckForOverpopulation();
+
+            rectTransform = GetComponent<RectTransform>();
+
             AssignMaterial();
             DelegateManager.AvoidOverlap(DelegateManager.allUIObjects, DelegateManager.minDistance, GetComponent<RectTransform>());
 
@@ -34,6 +41,18 @@ namespace Slimulator
             {
                 timer = GetComponent<Timer>();
                 timer.startCountDown(lifeSpan);
+            }
+        }
+
+        private void Update()
+        {
+            float x = Mathf.Abs(rectTransform.anchoredPosition.x);
+            float y = Mathf.Abs(rectTransform.anchoredPosition.y);
+
+            if (x > 2000 && x < 5000 ||
+                y > 2000 && y < 5000)
+            {
+                Destroy(gameObject);
             }
         }
 
@@ -50,6 +69,18 @@ namespace Slimulator
                 myText.text = myCraftingMaterialType.materialName;
                 atomicNumber.text = (myCraftingMaterialType.atomicNumber).ToString();
                 shouldAssignNames = false;
+            }
+        }
+
+        private void CheckForOverpopulation()
+        {
+            int randomIndex = Random.Range(0, 20);
+
+            if(randomIndex < DelegateManager.allUIObjects.Items.Count &&
+                !isCrafted)
+            {
+                Debug.Log("I Died during Childbirth!");
+                Destroy(gameObject);
             }
         }
     }

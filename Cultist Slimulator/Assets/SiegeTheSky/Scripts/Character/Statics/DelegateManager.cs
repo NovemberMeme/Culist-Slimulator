@@ -30,6 +30,8 @@ namespace SiegeTheSky
         public delegate void UpdateCurrentCraftingMaterials();
         public static UpdateCurrentCraftingMaterials updateCurrentCraftingMaterials;
 
+        public static GameObject spawner;
+
         // Drag Drop
 
         public static Canvas dragDropCanvas;
@@ -221,8 +223,16 @@ namespace SiegeTheSky
 
         public static void RandomizePosition(RectTransform _origin)
         {
-            float randomX = Random.Range(-maxRandomDistance, maxRandomDistance);
-            float randomY = Random.Range(-maxRandomDistance, maxRandomDistance);
+            float randomX = Random.Range(-minRandomDistance, maxRandomDistance);
+            float randomY = Random.Range(-minRandomDistance, maxRandomDistance);
+
+            _origin.anchoredPosition = new Vector3(_origin.anchoredPosition.x + randomX, _origin.anchoredPosition.y + randomY);
+        }
+
+        public static void RandomizePosition(RectTransform _origin, float multiplier)
+        {
+            float randomX = Random.Range(-minRandomDistance * multiplier, maxRandomDistance * multiplier);
+            float randomY = Random.Range(-minRandomDistance * multiplier, maxRandomDistance * multiplier);
 
             _origin.anchoredPosition = new Vector3(_origin.anchoredPosition.x + randomX, _origin.anchoredPosition.y + randomY);
         }

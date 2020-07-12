@@ -9,6 +9,7 @@ namespace SiegeTheSky
     public class RiftData
     {
         public GameObject objectToSpawn;
+        public RandomEvent randomEvent;
         public int spawnChance;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using SiegeTheSky;
 
 namespace Slimulator
@@ -26,7 +27,13 @@ namespace Slimulator
 
         [SerializeField] private CraftingMode craftingMode = CraftingMode.Fusion;
 
+        [SerializeField] private Image craftingButtonImage;
+
+        [SerializeField] private Sprite fusionSprite;
+        [SerializeField] private Sprite microwaveSprite;
+
         [SerializeField] private GameObject _marker;
+        [SerializeField] private GameObject _spawner;
 
         [SerializeField] private Transform _parentPanel;
 
@@ -52,6 +59,13 @@ namespace Slimulator
 
             DelegateManager.minRandomDistance = _minRandomDistance;
             DelegateManager.maxRandomDistance = _maxRandomDistance;
+
+            DelegateManager.spawner = _spawner;
+        }
+
+        private void Update()
+        {
+            
         }
 
         #region Crafting Code
@@ -64,6 +78,9 @@ namespace Slimulator
         public void AttemptCraft()
         {
             List<int> currentRecipe = new List<int>();
+
+            if (_currentCraftingMaterials.Count < 1)
+                return;
 
             for (int i = 0; i < _currentCraftingMaterials.Count; i++)
             {
@@ -91,11 +108,13 @@ namespace Slimulator
             {
                 ConsumeSpecificType(_currentRecipe[i]);
             }
+
+            FixCraftingList();
         }
 
         private void MassCraft(int atomicNumber, int amount)
         {
-            while(amount > 3 && atomicNumber >= allCraftingMaterials.Count)
+            while(amount > 3 && atomicNumber < allCraftingMaterials.Count)
             {
                 atomicNumber++;
                 amount /= 2;
@@ -160,14 +179,19 @@ namespace Slimulator
                 elementsToCraft.Add(_currentRecipe[0]);
             }
 
+            int repeatTimes = _currentRecipe.Count;
+
             int coinFlip = Random.Range(0, 2);
 
             if(coinFlip > 0)
             {
+                repeatTimes++;
+            }
+
+            for (int i = 0; i < repeatTimes; i++)
+            {
                 elementsToCraft.Add(RandomTraceElement(elementsToCraft[0]));
             }
-                
-            elementsToCraft.Add(RandomTraceElement(elementsToCraft[0]));
 
             CraftMultiple(elementsToCraft);
 
@@ -193,6 +217,10 @@ namespace Slimulator
         {
             Debug.Log(atomicNumber);
             GameObject craftedObject = Instantiate(allCraftingMaterials[atomicNumber-1], DelegateManager.marker.transform.position, Camera.main.transform.rotation);
+
+            CraftingMaterial craftedMaterial = craftedObject.GetComponent<CraftingMaterial>();
+            craftedMaterial.isCrafted = true;
+
             craftedObject.transform.SetParent(DelegateManager.parentPanel);
             craftedObject.GetComponent<RectTransform>().localScale = Vector3.one;
         }
@@ -202,6 +230,10 @@ namespace Slimulator
             // Marker
 
             GameObject craftedObject = Instantiate(objectToCraft.CraftedObject, DelegateManager.marker.transform.position, Camera.main.transform.rotation);
+
+            CraftingMaterial craftedMaterial = craftedObject.GetComponent<CraftingMaterial>();
+            craftedMaterial.isCrafted = true;
+
             craftedObject.transform.SetParent(DelegateManager.parentPanel);
             craftedObject.GetComponent<RectTransform>().localScale = Vector3.one;
 
@@ -272,6 +304,20 @@ namespace Slimulator
             //}
 
             DelegateManager.deselectAll?.Invoke();
+        }
+
+        public void SetCraftingMode(int _craftingModeIndex)
+        {
+            craftingMode = (CraftingMode)_craftingModeIndex;
+            switch (_craftingModeIndex)
+            {
+                case 0:
+                    craftingButtonImage.sprite = fusionSprite;
+                    break;
+                case 1:
+                    craftingButtonImage.sprite = microwaveSprite;
+                    break;
+            }
         }
 
         #endregion
