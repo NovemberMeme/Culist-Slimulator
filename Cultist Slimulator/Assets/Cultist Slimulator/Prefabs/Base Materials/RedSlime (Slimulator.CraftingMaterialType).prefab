@@ -663,13 +663,13 @@ RectTransform:
   - {fileID: 2809130583442281586}
   - {fileID: 4962587039914727642}
   - {fileID: 278906448480896392}
-  - {fileID: 7619189506824682652}
+  - {fileID: 4712506028314066484}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 666.5, y: -410.1}
+  m_AnchoredPosition: {x: 1267, y: -500}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1197590993350386074
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeac1b7bebcdc64f96a95926b1dbae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldAssignNames: 0
+  shouldAssignNames: 1
   myText: {fileID: 2809130583442281587}
   atomicNumber: {fileID: 3738468029202746897}
   myCraftingMaterialType: {fileID: 11400000, guid: 7e40eb774d3debc47ac0c8831029d0a6,
@@ -870,7 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tic: 0.1
   txt: {fileID: 6587698165872182935}
---- !u!1001 &5241812193538929177
+--- !u!1001 &6945759357415076017
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -989,9 +989,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f13d1811087d54d4c8ed2274ab9fc30a, type: 3}
---- !u!224 &7619189506824682652 stripped
+--- !u!224 &4712506028314066484 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2378573599152393861, guid: f13d1811087d54d4c8ed2274ab9fc30a,
     type: 3}
-  m_PrefabInstance: {fileID: 5241812193538929177}
+  m_PrefabInstance: {fileID: 6945759357415076017}
   m_PrefabAsset: {fileID: 0}

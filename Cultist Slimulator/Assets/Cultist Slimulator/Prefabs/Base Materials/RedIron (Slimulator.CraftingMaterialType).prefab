@@ -274,13 +274,13 @@ RectTransform:
   - {fileID: 5120872644360102650}
   - {fileID: 2680294298503163474}
   - {fileID: 7075761979001877248}
-  - {fileID: 1818266185118202309}
+  - {fileID: 7519455032473339094}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1072.9, y: -298.9}
+  m_AnchoredPosition: {x: 617, y: -417}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &19094846742216472
@@ -870,7 +870,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1001 &484788386535099747
+--- !u!1001 &8636760099393843312
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -890,7 +890,7 @@ PrefabInstance:
     - target: {fileID: 2270261774189851814, guid: 07ed47457cc0c9e4c82a17db9a29df73,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.46
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2270261774189851814, guid: 07ed47457cc0c9e4c82a17db9a29df73,
         type: 3}
@@ -935,12 +935,12 @@ PrefabInstance:
     - target: {fileID: 2270261774189851814, guid: 07ed47457cc0c9e4c82a17db9a29df73,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 2270261774189851814, guid: 07ed47457cc0c9e4c82a17db9a29df73,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 13.5
+      value: 34.49971
       objectReference: {fileID: 0}
     - target: {fileID: 2270261774189851814, guid: 07ed47457cc0c9e4c82a17db9a29df73,
         type: 3}
@@ -989,9 +989,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07ed47457cc0c9e4c82a17db9a29df73, type: 3}
---- !u!224 &1818266185118202309 stripped
+--- !u!224 &7519455032473339094 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2270261774189851814, guid: 07ed47457cc0c9e4c82a17db9a29df73,
     type: 3}
-  m_PrefabInstance: {fileID: 484788386535099747}
+  m_PrefabInstance: {fileID: 8636760099393843312}
   m_PrefabAsset: {fileID: 0}
