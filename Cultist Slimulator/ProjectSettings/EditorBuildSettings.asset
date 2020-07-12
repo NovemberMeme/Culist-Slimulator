@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Cultist Slimulator/Scenes/MainMenu.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Cultist Slimulator/Scenes/TestScene_01.unity
+    guid: ab74e48245262d649b51a17fe5c34c79
   m_configObjects: {}
