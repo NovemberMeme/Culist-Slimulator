@@ -104,6 +104,43 @@ namespace Slimulator
             }
         }
 
+        public void AttemptFusionCraft()
+        {
+            List<int> currentRecipe = new List<int>();
+
+            if (_currentCraftingMaterials.Count < 1)
+                return;
+
+            for (int i = 0; i < _currentCraftingMaterials.Count; i++)
+            {
+                if (_currentCraftingMaterials[i].GetComponent<CraftingMaterial>() == null)
+                    return;
+
+                currentRecipe.Add(_currentCraftingMaterials[i].GetComponent<CraftingMaterial>().MyCraftingMaterialType.atomicNumber);
+            }
+
+            CheckRecipe(currentRecipe);
+            FusionCraft(currentRecipe);
+        }
+
+        public void AttemptMicrowaveCraft()
+        {
+            List<int> currentRecipe = new List<int>();
+
+            if (_currentCraftingMaterials.Count < 1)
+                return;
+
+            for (int i = 0; i < _currentCraftingMaterials.Count; i++)
+            {
+                if (_currentCraftingMaterials[i].GetComponent<CraftingMaterial>() == null)
+                    return;
+
+                currentRecipe.Add(_currentCraftingMaterials[i].GetComponent<CraftingMaterial>().MyCraftingMaterialType.atomicNumber);
+            }
+
+            MicrowaveCraft(currentRecipe);
+        }
+
         private void MicrowaveCraft(List<int> _currentRecipe)
         {
             for (int i = 0; i < _currentRecipe.Count; i++)

@@ -435,7 +435,7 @@ MonoBehaviour:
     type: 2}
   isSelected: 0
   isDecaying: 1
-  lifeSpan: 10
+  lifeSpan: 90
   isCrafted: 0
 --- !u!114 &7328824028916244439
 MonoBehaviour:
