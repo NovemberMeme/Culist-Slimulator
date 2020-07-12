@@ -7,6 +7,9 @@ namespace cc.tools
 {
     public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        [SerializeField] Canvas canvas;
+        RectTransform rectTransform;
+
         [SerializeField] MainMenuControl mmc;
         Vector3 DefaultPos = Vector3.zero;
      
@@ -18,6 +21,7 @@ namespace cc.tools
         {
             DefaultPos = transform.position;
             cg = GetComponent<CanvasGroup>();
+            rectTransform = GetComponent<RectTransform>();
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -31,10 +35,10 @@ namespace cc.tools
 
         public void OnDrag(PointerEventData eventData)
         {
-          
-            Vector3 screenPoint = Input.mousePosition;
-            screenPoint.z = transform.position.z;
-            transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+            //Vector3 screenPoint = Input.mousePosition;
+            //screenPoint.z = transform.position.z;
+            //transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
         }
 
         public void OnEndDrag(PointerEventData eventData)
